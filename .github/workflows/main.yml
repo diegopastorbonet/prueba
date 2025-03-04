@@ -1,1 +1,24 @@
+name: Ejecutar scraper semanalmente
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Todos los domingos a la medianoche UTC
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+        
+      - name: Configurar Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+      
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      
+      - name: Ejecutar el scraper
+        run: python epic.py
 
