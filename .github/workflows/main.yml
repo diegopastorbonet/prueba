@@ -2,7 +2,8 @@ name: Ejecutar scraper semanalmente
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # Todos los domingos a la medianoche UTC
+    - cron: '0 0 * * 0'  # Se ejecuta cada domingo a medianoche UTC
+  workflow_dispatch: # Permite ejecutarlo manualmente desde GitHub Actions
 
 jobs:
   run-scraper:
@@ -17,8 +18,7 @@ jobs:
           python-version: '3.9'
       
       - name: Instalar dependencias
-        run: pip install -r requirements.txt
-      
+        run: pip install -r requirements.txt || echo "No hay dependencias"
+
       - name: Ejecutar el scraper
         run: python epic.py
-
