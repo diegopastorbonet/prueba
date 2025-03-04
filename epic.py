@@ -30,7 +30,7 @@ else:
 import re
 texto = aux
 
-patron_inicial = r"Outside of the holidays, Epic sticks to a weekly schedule for handing out freebies, so keep an eye out for each week's new free choices."
+patron_inicial = r"For games that are free all the time, check out our lists of best free PC games, best free games on Steam, and best browser games."
 
 # Buscar el patrón inicial en el texto
 resultado_inicial = re.search(patron_inicial, texto)
